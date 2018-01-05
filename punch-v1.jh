@@ -1,0 +1,29 @@
+entity Store {
+	name String required,
+    address String,
+    code Long,
+    contact Long	
+}
+
+entity RateProfile {
+	name String required,
+	normalRate Long
+}
+
+entity TimeClock {
+	intime Date,
+    outtime Date,
+	actualintime Date,
+    actualouttime Date,
+	creationTime Date
+}
+
+relationship OneToOne {
+	TimeClock{user} to User
+}
+relationship OneToOne {
+	Store{user} to User
+}
+relationship OneToOne {
+	TimeClock{profile} to RateProfile
+}
